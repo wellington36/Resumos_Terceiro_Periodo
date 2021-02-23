@@ -1,4 +1,4 @@
 # Resumos Terceiro Periodo
 
-- EDO (Até dia 22 de fevereiro)
-- Probabilidade (Making)
+- EDO 			(Até dia 24 de fevereiro)
+- Probabilidade (Até 1.3.0)
