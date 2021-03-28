@@ -1,4 +1,4 @@
 # Resumos Terceiro Periodo
 
-- EDO 			(Até dia 10 de março)
-- Probabilidade (Até 2.3.3 das notas de aula)
+- EDO 			(Até dia 24 de março)
+- Probabilidade (Até 4.1.2 das notas de aula)

@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+
+\usepackage{ setspace }
+\usepackage{ amssymb }
+\usepackage{ amsmath }
+\usepackage{ amsfonts }
+\usepackage{ wasysym }
+\usepackage{ graphicx }
+\usepackage{ textcomp }
+\usepackage[pdftex,bookmarks=true,bookmarksopen=false,bookmarksnumbered=true,colorlinks=true,linkcolor=black]{ hyperref }
+\usepackage[utf8]{ inputenc }
+\usepackage{ float }
+\usepackage{ pdfpages }
+
+
+\usepackage[brazil]{ babel }
+
+\pagestyle{plain}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{definition}{Definição}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE Fundação Getulio Vargas}\\ 
+\textbf{\LARGE Escola de Matemática Aplicada}
+
+\par
+\vspace{170pt}
+\textbf{\Large Wellington José}\\
+\vspace{32pt}
+\textbf{\Large Resumo de EDO}\\
+\end{center}
+
+\par
+\vfill
+\begin{center}
+{{\normalsize Rio de Janeiro}\\
+{\normalsize \the\year}}
+\end{center}
+\end{titlepage}
+
+\section{Equações Diferenciais de Primeira Ordem (22/02)}
+Vamos considerar a equação diferencial linear de Primeira ordem com $p(x)$ e $g(x)$ funções contínuas em $I \subset \mathbb{R}$:
+
+$$y' + p(x) y = g(x)$$
+
+Se $g(x) = 0$, temos uma equação homogênea, de solução:
+
+$$y(x) = e^{-\int p(x) d x} \cdot e^c$$
+
+Para o caso geral a ideia é multiplicar a equação por um fator integrante transformando-a numa forma imediatamente integrável. Seja $u(x)$ este fator integrante, então
+
+$$u(x) y' + u(x) p(x) y = u(x) g(x)$$
+
+Chegamos que:
+
+$$y(x) = \dfrac{1}{u(x)} \int u(x) g(x) d x + c$$
+
+e
+
+$$u(x) = e^{\int p(x) d x}$$
+
+\section{Equação de Bernoulli e Equações separáveis (24/02)}
+
+Um exemplo de equação de Primeira ordem que não é linear é a \textbf{equação de Bernoulli}:
+
+$$y' + p(x) y = q(x) y^\alpha, \ \alpha \in \mathbb{R}$$
+
+\subsection*{Equações separáveis}
+
+São equações diferenciais do tipo
+
+$$M(x) + N(x) \dfrac{d y}{d x} = 0$$
+
+ou
+
+$$M(x) d x + N(y) d y = 0 \ (\textasteriskcentered)$$
+
+Suponhamos $H_1 = \int M(x) d x$ e $H_2 = \int N(y) d y$, então (\textasteriskcentered) tem como solução
+
+$$H_1(x) + H_2 (y) = c$$
+
+que geralmente está na forma implícita.
+
+\section{Equações Diferenciais Exatas e Equações Diferenciais Não Exatas (01/03)}
+\subsection*{Equações Diferenciais Exatas}
+Considere a equação diferencial
+
+$$M(x, y) d x + N(x, y) d y = 0$$
+
+E suponha que existe uma função f(x, y) tal que 
+
+$$\dfrac{\partial f}{\partial x} = M(x,y), \ \dfrac{\partial f}{\partial y} = N(x, y), e \ f(x, y) = c$$
+
+Então $f(x, y) = M(x, y) d x + N(x, y) d y$, e a equação diferencial é \textbf{exata}.
+
+\begin{theorem}
+Suponha que as funções $M, N, M_y$ e $N_x$ são contínuas na região $R: a<x<b, c<y<d$. Então a equação $M(x, y) d x + N(x, y) d y = 0$ é uma equação diferencial exata em $R$ se e somente se:
+
+$$M_y(x, y) = N_x(x, y) \text{ em R}$$
+
+Isto é, existe uma função $f(x, y) = c$, tal que
+
+$$\dfrac{\partial f}{\partial x} = M(x,y) \text{ e } \dfrac{\partial f}{\partial y} = N(x, y)$$
+
+se e somente se $M_y = N_x$
+\end{theorem}
+
+\subsection*{Equações Diferenciais Não Exatas}
+Em geral a equação $M(x, y) d x + N(x, y) d y = 0$ não é exata, mas eventualmente é possível transformá-la numa equação diferencial exata multiplicando por um fator integrante.
+
+Se $\frac{M_y - N_x}{N}$ for uma função só de $x$ então podemos encontrar $u(x) = e^{\int \frac{M_y - N_x}{N} d x}$ como fator integrante. Se $\frac{N_x - M_y}{M}$ for uma função só de $y$ então podemos encontrar $u(y) = e^{\int \frac{N_x - M_y}{M} d y}$ como fator integrante.
+
+\subsubsection*{Exemplo: $y d x - x d y = 0$}
+Como
+
+$$\dfrac{\partial M}{\partial y} = 1 \text{ e } \dfrac{\partial N}{\partial x} = -1 \text{ não é exata}$$
+
+Note que, $\frac{N_x - M_y}{N} = \frac{2}{x}$ depende apenas de $x$, e
+
+$$u(x) = e^{-\int \frac{2}{x} d x} = \dfrac{1}{x^2}$$
+
+Logo, a nova equação
+
+$$\dfrac{y}{x^2} d x - \dfrac{1}{x} d y = 0 \text{ é exata}$$
+
+\section{Problemas de diluição, Resfriamento de um corpo e Juros compostos (03/03)}
+\subsection*{Problemas de diluição}
+Considere um tanque contendo no estado inicial $V_0$ litros de salmoura com \textbf{$\alpha$ kg} de sal (pode ser $\alpha = 0$).
+Uma outra solução de salmoura contendo \textbf{c kg} quilos de sal por litro é derramada nesse tanque a uma taxa \textbf{a l/min}, enquanto simultaneamente a mistura bem agitada deixa o tanque a uma taxa de \textbf{b l/min}. Queremos determinar (Q(t)) a quantidade de sal (em quilos) no tempo t dentro do tanque. Temos que
+
+$$\dfrac{d Q}{d t} + \dfrac{b}{V_0 + a t - b t} Q = a c$$
+
+\subsection*{Resfriamento de um corpo}
+Sendo T a temperatura do corpo, $T_a$ a temperatura no ambiente, a taxa de variação da temperatura do corpo é de $\frac{d T}{d t}$ e assim chegamos que a variação da temperatura do corpo é (se a temperatura do ambiente não muda):
+
+$$T = (T_0 - T_a) e^{-k t} + T_a$$
+
+Agora e se a $T_a$ varia com o tempo (perdendo ou ganhando calor):
+
+$$\dfrac{d T}{d t} + k (1 + A) T = k (T_{a,0} + A T_0)$$
+
+onde
+
+$$A = \dfrac{m_c}{m_a c_a}$$
+
+com solução:
+
+$$T(t) = \left ( \dfrac{T_0 - T_{a, 0}}{1 + A} \right ) e^{k (1 + A) t} + \dfrac{T_{a, 0} + A T_0}{1 + A}$$
+
+\subsection*{Juros Compostos}
+(Análogo aos casos anteriores), com solução
+
+$$S(t) = S_0 e^{r t} + \dfrac{k}{r} (e^{r t} - 1)$$
+
+\section{Equações autônomas (08/03)}
+Uma classe de EDO importante são as quais não aparece a variável independente explicitamente. São as \textbf{equações autônomas}:
+
+$$\dfrac{d y}{d t} = f(y)$$
+
+Tais equações tem solução análoga as que já vimos.
+
+\section{Existência e Unicidade (10/03)}
+Uma EDO sempre possui solução e ela é única (não é necessário provar aqui).
+
+\href{https://www.youtube.com/watch?v=01FK-H7Kbpk&t=1s}{Video explicativo}
+
+\section{Equações diferenciais lineares de segunda ordem (17/03)}
+Uma equação diferencial linear de segunda ordem, com condições iniciais é um equação do tipo
+
+\begin{equation}\label{segOrd}
+    y'' + p(t) y' + q(t)y = g(t), \ y(t_0) = y_0, \ y'(t_0) = y'_0
+\end{equation}
+
+Se $g(t) = 0$ a equação \ref{segOrd} é dita homogênea.
+
+\begin{theorem}
+    Quando a equação é homogênea onde $p(t)$ e $q(t)$ são funções contínuas em um intervalo I, possui uma solução única $y(t)$ em I.
+\end{theorem}
+
+\begin{theorem}
+    Se $y_1(t)$ e $y_2(t)$ são soluções, então a combinação linear $c_1 y_1(t) + c_2 y_2(t)$ também é solução.
+\end{theorem}
+
+\begin{definition}
+    Considere as funções diferenciáveis $f(t)$ e $g(t)$ o determinante $\left \| \begin{array}{cc}
+    f(t) & g(t) \\
+    f'(t) & g'(t)
+    \end{array} \right \| = W(f, g)(t)$ é chamado de Wronskiano das funções $f(t)$ e $g(t)$.
+\end{definition}
+
+\begin{definition}
+    Duas funções $f(t), g(t)$ são ditas linearmente dependentes em um intervalo I se existem constantes $k_1$ e $k_2$, com pelo menos uma delas não nulas tal que
+    
+    $$k_1 f(t) + k_2 g(t) = 0 \ \forall t \in I$$
+\end{definition}
+
+\begin{definition}
+    As funções $f(t)$ e $g(t)$ são L.I. se $k_1 f(t) + k_2 g(t) = 0 \ \forall t \in I$ se e só se $k_1 = k_2 = 0$.
+\end{definition}
+
+\begin{theorem}
+    Sejam $f(t)$ e $g(t)$ funções diferenciáveis em I, e suponhamos que $W(f, g)(t_0) \neq 0$ para algum $t_0 \in I$. Então $f(t)$ e $g(t)$ são L.I.
+\end{theorem}
+
+\begin{theorem}
+    Suponhamos que $y_1(t)$ e $y_2(t)$ são duas soluções da equação diferencial de segunda ordem $y'' + p(t) y' + q(t) y = 0$, e que para $t_0 \in I$ temos que $W(y_1, y_2) \neq 0$ e as condições iniciais $y(t_0) = y_0$ e $y'(t_0) = y'_0$. Então podemos encontrar constantes $c_1$ e $c_2$ para os quais $y(t) = c_1 y_1(t) + c_2 y_2(t)$ satisfazem a equação \ref{segOrd} (Ou seja, data duas soluções particulares L.I. podemos achar a geral).
+\end{theorem}
+
+\begin{definition}
+    A equação característica de $ay'' + by' + cy = 0$ é a equação $a k^2 + b k + c = 0$, e vamos usar ela na hora de resolver.
+\end{definition}
+
+
+\end{document}

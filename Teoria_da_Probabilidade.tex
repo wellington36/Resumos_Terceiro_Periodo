@@ -1,0 +1,428 @@
+\documentclass[12pt]{article}
+
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage[pdftex,bookmarks=true,bookmarksopen=false,bookmarksnumbered=true,colorlinks=true,linkcolor=black]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{enumerate}
+
+
+
+\usepackage[brazil]{babel}
+
+\pagestyle{plain}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{definition}{Definição}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE Fundação Getulio Vargas}\\ 
+\textbf{\LARGE Escola de Matemática Aplicada}
+
+\par
+\vspace{170pt}
+\textbf{\Large Wellington José}\\
+\vspace{32pt}
+\textbf{\Large Resumo de Teoria da Probabilidade}\\
+\end{center}
+
+\par
+\vfill
+\begin{center}
+{{\normalsize Rio de Janeiro}\\
+{\normalsize \the\year}}
+\end{center}
+\end{titlepage}
+
+\section{Conceitos Básicos}
+\subsection*{1.2   Modelos de Probabilidade}
+\begin{definition}
+Dois eventos A e B são chamados de \textbf{mutuamente excludentes} se não podem ocorrer simultaneamente, isto é, se $A \cap B = \emptyset$.
+\end{definition}
+
+\begin{definition}
+Uma \textbf{probabilidade} é uma função que associa a cada evento \textbf{A} um número \textbf{P(A)} de forma que:
+\begin{enumerate}
+    \item Para todo evento A, $0 \leqslant Pr(A) \leqslant 1$;
+    \item $P(S) = 1$;
+    \item Se A e B são eventos mutuamente excludentes então
+    $$P(A \cup B) = P(A) + P(B)$$
+\end{enumerate}
+\end{definition}
+
+\begin{corollary}[Lei do Complemento]
+$$P(\overline{A}) = 1 - P(A)$$
+
+Em outras palavras, a probabilidade de um evento ocorrer mais a probabilidade de ele não ocorrer dá $100\%$
+\end{corollary}
+
+\begin{corollary}
+$P(\emptyset) = 0$, isto é se um evento é impossível, sua probabilidade deve ser 0.
+\end{corollary}
+
+\begin{corollary}[Lei da Adição]
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+\end{corollary}
+
+\subsection*{Probabilidade Condicional}
+\begin{definition}
+Sejam A e B dois eventos com $P(A) \neq 0$. A probabilidade condicional de B dado A é
+
+$$P(B|A) = \dfrac{P(A \cap B)}{P(A)}$$
+\end{definition}
+
+\begin{corollary}[Lei da Multiplicação]
+
+$$P(A \cap B) = P(B|A) \cdot P(A) = P(B|A) \cdot P(B)$$
+
+\end{corollary}
+
+\subsubsection*{Probabilidade Total e Teorema de Bayes}
+\begin{corollary}[Lei da Probabilidade Total]
+Suponha que $B_1, B_2, \dots, B_n$ formam uma partição de S. Então
+
+% $$P(A) = P(A \cap B_1) + \dotsb + P(A \cap B_n)$$
+
+\end{corollary}
+
+\begin{corollary}[Teorema de Bayes]
+Suponha que $B_1, B_2, \cdots, B_n$ formam uma partição de S. Então
+
+$$P(B_1|A) = \dfrac{P(A|B_1) P(B_1)}{P(A|B_1) P(B_1) + P(A|B_2) P(B_2) + \cdots + P(A|B_n) P(B_n)}$$
+
+\end{corollary}
+
+\subsubsection*{Independência}
+\begin{definition}
+Dois eventos (não impossíveis) A e B são ditos \textbf{independentes} se o conhecimento de um deles não afeta a probabilidade do outro ocorrer, isto é, se
+
+$$P(B|A) = P(B)$$
+\end{definition}
+
+\section{Variáveis Aleatórias Discretas}
+\subsection*{2.1 Função de Probabilidade e Função de Probabilidade Conjunta}
+\begin{definition}
+Se X é uma variáveis aleatórias discretas, definimos a \textbf{função de probabilidade de X} por
+
+$$p_{X} (x) = P(X = x)$$
+\end{definition}
+
+\begin{definition}
+Se X e Y são variáveis aleatórias discretas, definimos a \textbf{função de probabilidade conjunta de X e Y} por
+
+$$p_{X, Y} (x, y) = P(X = x \text{ e } Y = y)$$
+\end{definition}
+
+\subsubsection*{Independência de Variáveis Aleatórias Discretas}
+\begin{definition}
+Dizemos que X e Y são variáveis \textbf{independentes} exatamente quando
+
+$$P(X = i \text{ e } Y = j) = P(X = i) \cdot P(Y = j)$$
+\end{definition}
+
+\begin{corollary}
+X e Y são independentes se, e somente se, a distribuição condicional de X dado Y $= j$ é idêntica à distribuição marginal de X (qualquer que seja y possível). De fato, temos:
+
+$$P(X = i | Y = j) = \dfrac{P(X = i \text{ e }}{P(Y = j} = P(X = i)$$
+\end{corollary}
+
+\subsection*{Função de Probabilidade Acumulada}
+\subsubsection*{Definição}
+\begin{definition}
+A \textbf{função de distribuição} (ou \textbf{função de probabilidade acumulada}) de X é definida por
+
+$$F_X(x) = P(X \leq x)$$
+\end{definition}
+
+\begin{corollary}
+Se F é a função de distribuição acumulada de uma variável aleatória discreta:
+
+\begin{enumerate}[i.]
+    \item F é não-decrescente;
+    \item $F(- \infty) = 0$ e $F(+ \infty) = 1$ (ou seja, $\lim_{x\rightarrow{} - \infty} F(x) = 0$ e $\lim_{x\rightarrow{} + \infty} F(x) = 1$;
+    \item F é constante por partes (isto é, uma função-escada).
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+Se F é uma função de distribuição acumulada de uma variável aleatória, então
+
+$$P(a < X \leq b) = F(b) - F(a)$$
+\end{corollary}
+
+\subsubsection*{Quantis}
+\begin{definition}
+O q-quantil de uma variável aleatória X é qualquer valor $x_q$ onde a função acumulada "acerta" por q ou "passa" por p. Formalmente:
+
+$$F(x_q -) \leq q \leq F(x_q)$$
+\end{definition}
+
+\subsection*{2.3 Valor Esperança}
+\subsubsection*{Intuição e Definição}
+\begin{definition}
+Se X é uma variável aleatória discreta, definimos o \textbf{valor esperado} (ou esperança matemática, ou expectativa, ou média, ou valor médio) de X por
+
+$$E(X) = \sum_{x \in S} x \cdot p(x)$$
+
+isto é, $E(X)$ é uma média ponderada dos valores de X, com pesos iguais às respectivas probabilidades destes valores. Ocasionalmente, escrevemos $\mu_X = E(X)$
+
+A esperança é uma medida de posição ou de tendência central (valores grandes de X acarretam $E(X)$ grande; valores pequenos de X acarretam $E(X)$ pequeno).
+\end{definition}
+
+\subsubsection*{Propriedades (Caso Unidimensional)}
+\begin{corollary}
+Se $Y = f(X)$, temos
+
+$$E(Y) = E(f(X)) = \sum_{x \in S} f(x) \cdot p(x)$$
+\end{corollary}
+
+\begin{corollary}
+Sejam a e b constantes quaisquer. Então:
+
+$$E(a X + b) = a E(X) + b$$
+\end{corollary}
+
+\subsubsection*{Propriedades (Caso Bidimensional)}
+\begin{corollary}
+Se $Z = f(X, Y)$ então
+
+$$E(Z) = E(f(X, Y)) = \sum_{x, y} f(x, y) p_{X, Y} (x, y)$$
+\end{corollary}
+
+\begin{corollary}
+Sejam a, b e c constantes quaisquer. Então
+
+$$E(a X + b Y + c) = a E(X) + b E(Y) + c$$
+\end{corollary}
+
+\begin{corollary}
+Se X e Y são independentes, então $E(X Y) = E(X) E(Y)$.
+\end{corollary}
+
+\subsection*{2.4 Variância e Outras Medidas de Dispersão}
+\subsubsection*{Definição}
+
+\begin{definition}
+    Duas medidas de dispersão comuns são o \textbf{desvio médio}, definidos por
+    
+    $$D M (X) = E(|X - E(X)|)$$
+    
+    e a \textbf{variância}, definida por
+    
+    $$Var(X) = E[(X - E(X))^2]$$
+    
+    Ao invés da variância, podemos medir a dispersão de X pelo seu \textbf{desvio-padrão}
+    
+    $$\sigma (X) = \sqrt{Var(X)}$$
+\end{definition}
+
+\begin{corollary}
+    Sejam a e b constantes quaisquer. então
+    
+    $$Var(a X + b) = a^2 Var(X)$$
+    $$\sigma (a X + b) = |a| \dot \sigma(X)$$
+    $$D M(a X + b) = |a| \dot D M(X)$$
+\end{corollary}
+
+\begin{corollary}
+    $$Var(X) = E(X^2) - (E(X))^2$$
+\end{corollary}
+
+\begin{corollary}
+    Se X e Y são independentes, $Var(X + Y) = Var(X) + Var(Y)$
+\end{corollary}
+
+\subsubsection*{Desigualdade de Chebyshev}
+\begin{theorem}[Desigualdade de Chebyshev]
+    Seja X uma variavel aleatória com valor esperado $\mu = E(X)$ e desvio-padrão $\sigma = \sigma(X)$. Seja $P = \{ x \in \mathbb{R} | \ |x-\mu| < k \sigma \}$ (isto é, P é o intervalo aberto $(x - k \sigma, x + k \sigma)$, um conjunto de vlores de x que estão "perto da média" pelo menos k desvios-padrão). Então, para qualquer $k > 0$, tem-se
+    
+    $$P(X \notin P) \leq \dfrac{1}{k^2}$$
+    
+    ou seja
+    
+    $$P(|X - \mu| \geq k \sigma) \leq \dfrac{1}{k^2}$$
+    $$P(|X - \mU| < k \sigma) \geq 1 - \dfrac{1}{k^2}$$
+\end{theorem}
+
+\subsection*{2.5 Covariância e Correlação}
+\begin{definition}
+    A \textbf{covariância} entre duas variáveis X e Y é 
+    
+    $$Cov (X, Y) = E[(X - E(X)) \dot (Y - E(Y))]$$
+\end{definition}
+
+\begin{corollary}
+    $$Cov(X, Y) = E(XY) - E(X) E(Y)$$
+\end{corollary}
+
+\begin{corollary}
+    Se X e Y são independentes, então $Cov(X, Y) = E(XY) - E(X) E(Y) = 0$
+\end{corollary}
+
+\begin{definition}
+    Outra medida de "variação conjunta" de duas variáveis X e Y é a \textbf{correlação}
+    
+    $$\rho (X, Y) = \dfrac{Cov (X, Y)}{\sigma (X) \sigma(Y)}$$
+\end{definition}
+
+\subsubsection*{Um pouco de Álgebra Linear}
+\begin{corollary}
+    Para quaisquer variaveis aleatorias X e Y:
+    
+    $$Var(X + Y) = Var(X) + Var(Y) + 2 Cov (X, Y)$$
+    
+    E se X e Y são independentes vale que $Var(X + Y) = Var(X) + Var(Y)$.
+\end{corollary}
+
+\begin{corollary}
+    $$Cov (aX + b, Y) = Cov (X, Y)$$
+\end{corollary}
+
+\begin{corollary}
+    $$\rho (a X + b, Y) = \rho (X, Y) \text{ se } a > 0$$
+    
+    $$\rho (a X + b, Y) = - \rho (X, Y) \text{ se } a < 0$$
+\end{corollary}
+
+\section{Principais Distribuições Discretas}
+\subsection{Distribuição}
+Se os valores assumidos por uma certa variável aleatória X são equiprováveis dizemos que X tem um \textbf{distribuição uniforme}.
+
+\subsection{Brevíssima Revisão de Analise Combinatória}
+Aqui trata-se de conteúdo do ensino médio em caso de duvida \href{https://pt.wikipedia.org/wiki/Combinat\%C3\%B3ria}{see}
+
+\subsection{Processo de Bernoulli}
+
+\begin{definition}
+    Um \textbf{processo de Bernoulli} é uma sequencia de experimentos com as seguintes características:
+    
+    \begin{enumerate}
+        \item Cada experimento tem apenas dois resultados possíveis, denominados \textbf{sucesso} e \textbf{falha}
+        
+        \item Cada experimento tem a mesma probabilidade p de sucesso, e cada experimento é completamente independente de todos os outros.
+    \end{enumerate}
+\end{definition}
+
+\subsubsection*{Distribuição Binomial}
+
+\begin{definition}
+    Suponha que o número de experimentos a serem feitos é determinado digamos, n experimentos. Seja X a variável aleatória que representa o numero de sucessos obtidos nestes n experimentos. Dizemos que X tem uma \textbf{distribuição binomial de parâmetros n e p} (e escrevemos X \backsim $Bin(n, p)$). Nesse caso a função de probabilidade de X passa a se chamar: BinomialDen
+    
+    $$P(X = k) = BinomialDen (k; n, p)$$
+    
+    e chamaremos a função acumulada de BinomialDist:
+    
+    $$P(X \leq k) = BinomialDist (k; n, p)$$
+\end{definition}
+
+\begin{corollary}
+    $$BinomialDen (k;n, p) = P(X = k) = {n \choose k} p^k q^{n-k}$$
+    
+    $$BinomialDist (k; n, p) = P(X \leq k) = \sum_{i = 0}^k {n \choose k} p^k q^{n - k}$$
+\end{corollary}
+
+\begin{corollary}
+    Seja $X \backsim Bin (n, p)$. Então
+    
+    $$E(X) = n p$$
+    $$Var (X) = n p q$$
+\end{corollary}
+
+\subsubsection*{Distribuição Geométrica}
+\begin{definition}
+    Suponha que realizamos um processo de Bernoulli com probabilidade de sucesso de cada prova $p > 0$. Seja X o número de tentativas feitas até o primeiro sucesso (inclusive). Dizemos que X tem uma \textbf{distribuição geométrica de parâmetro} p, isto é, $X \backsim Geom (p)$
+\end{definition}
+
+\begin{corollary}
+    Se $X \backsim Geom (p)$, então
+    
+    $$P(X = k) = Geom (k; p) = q^{k-1} p$$
+    $$P(X \leq k) = 1 - q^k$$
+\end{corollary}
+
+\begin{corollary}
+    Se $X \backsim Geom (p)$, então
+    
+    $$E(X) = \frac{1}{p}$$
+    $$Var (X) = \frac{q}{p^2}$$
+\end{corollary}
+
+\subsubsection*{Distribuição Binomial Negativa}
+\begin{definition}
+    Suponha que o processo de Bernoulli é repetido até obter r sucessos. Seja X o número de tentativas feitas (incluindo o último sucesso). Dizemos que X tem uma \textbf{distribuição binomial negativa de parâmetros r e p}, isto é, $X \backsim NegBin(r, p)$. Note que, a distribuição geométrica é um caso particular dessa.
+\end{definition}
+
+\begin{corollary}
+    Se $X \backsim NegBin(r, p)$, então para $k \geq r$ (k inteiro).
+    
+    $$P(X = k) = p. BinomialDen(r-1; k-1, p) = {k-1 \choose r-1} p^k q^{k - r}$$
+    
+    $$E(X) = \dfrac{r}{p}$$
+    
+    $$Var(X) = \dfrac{r q}{p^2}$$
+\end{corollary}
+
+\subsection*{3.4 Processo de Poisson}
+\begin{definition}
+    A \textbf{distribuição de Poisson} dizemos $X \backsim Poi (\mu)$ que no geral é $\lim_{n \rightarrow{} \infty} Bin (k; n, \frac{\mu}{n} = Poi (k; \mu)$
+\end{definition}
+
+\begin{corollary}
+    Se $X \backsim Poi (\mu)$, tem-se
+    
+    $$P(X = k) = \frac{\mu^}{k!} e^{-\mu}$$
+    
+    $$E(X) = Var(X) = \mu$$
+\end{corollary}
+
+\subsection*{3.5 Distribuição Hipergeométrica}
+\begin{definition}
+    De uma caixa com r bolas "sucesso" e $N-r$ bolas "falha", extraímos sem reposição n bolas. Seja X o número de bolas sucesso. Dizemos que X tem \textbf{distribuição hipergeométrica com parâmetros n, r e N}, isto é, $X \backsim Hip (n, r, N)$.
+\end{definition}
+    
+\begin{corollary}
+    Se $X \backsim Hip (n, r, N)$, então
+    
+    $$P(X = k) = Hip (k; n, r, N) = \dfrac{{r \choose k}{N-r \choose n-k}}{{N \choose n}}$$
+    
+    $$E(X) = n p$$
+    
+    $$Var(X) = n p q \frac{N - m}{N -1}$$
+    
+    onde $p = \dfrac{r}{N}$
+\end{corollary}
+
+\section{Variáveis Aleatórias Continuas}
+\subsection*{4.1 Distribuições Contínuas}
+\subsubsection*{Função de Distribuição Acumulada}
+
+\begin{definition}
+    A \textbf{função de distribuição acumulada (função de distribuição; fda)} de uma variável aleatória X é
+    
+    $$F_X(x) = P(X \leq x)$$
+\end{definition}
+
+\begin{corollary}
+    Se $F(x)$ é a f.d.a. de uma variavel read X, então
+    
+    $$F é \text{não-decrescente}$$
+    
+    $$F(- \infty) = P(X \leq - \infty) = 0 \ \text{ e } \ F(+\infty) = P(X \in \mathbb{R)} = 1$$
+    
+    $$P(a \leq X \leq b) = F(b) - F(a)$$
+    
+    Note que, no caso continuo $P(a < X \leq b) = P(a \leq X \leq b)$, pois $P(X = a) = 0$.
+\end{corollary}
+
+\end{document}
