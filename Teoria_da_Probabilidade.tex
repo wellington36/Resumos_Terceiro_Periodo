@@ -252,7 +252,7 @@ Se X e Y são independentes, então $E(X Y) = E(X) E(Y)$.
     ou seja
     
     $$P(|X - \mu| \geq k \sigma) \leq \dfrac{1}{k^2}$$
-    $$P(|X - \mU| < k \sigma) \geq 1 - \dfrac{1}{k^2}$$
+    $$P(|X - \mu| < k \sigma) \geq 1 - \dfrac{1}{k^2}$$
 \end{theorem}
 
 \subsection*{2.5 Covariância e Correlação}
@@ -424,5 +424,92 @@ Aqui trata-se de conteúdo do ensino médio em caso de duvida \href{https://pt.w
     
     Note que, no caso continuo $P(a < X \leq b) = P(a \leq X \leq b)$, pois $P(X = a) = 0$.
 \end{corollary}
+
+\subsubsection*{Quantis}
+
+\begin{definition}
+    O q-quantil de uma variável aleatória X é qualquer valor $x_q$ onde a função acumulada "acerta" q. Formalmente $F(x_q) = q$
+\end{definition}
+
+\subsubsection*{Função Densidade de Probabilidade}
+
+\begin{definition}
+    A \textbf{função densidade de probabilidade (fdp)} de X é a derivada da função acumulada:
+    
+    $$f_X(x) = \lim_{\Delta x \rightarrow{} 0} \dfrac{F(x + \Delta x) - F(x)}{\Delta x} = F'_X (x)$$
+\end{definition}
+
+\begin{corollary}
+    Dada a f.d.p. de uma variável aleatória contínua X, encontramos probabilidades pela fórmula
+    
+    $$P(a \leq X \leq) = F(b) - F(a) = \int_a^b f(t) d t$$
+    
+    Em particular, como $F(- \infty) = 0$, note que
+    
+    $$F(x) = P(X \leq x) = \lim{-\infty}^x f(t) d t$$
+\end{corollary}
+
+\begin{corollary}
+    Se f(x) é a f.d.p. de uma variável aleatória real X, então para todo x real:
+    
+    $$0 \leq f(x)$$
+    
+    $$\int_{- \infty}^{\infty} f(t) d t = 1$$
+\end{corollary}
+
+\begin{definition}
+    A \textbf{moda} de uma variável aleatória é o valor x onde a densidade f(x) é máxima.
+\end{definition}
+
+\subsubsection*{Funções de Variáveis Aleatórias Contínuas}
+
+Seja X uma variável aleatória de densidade f(x) e seja $Y = h(X)$ onde h é uma função crescente. Então a densidade g(y) da variável Y satisfaz
+
+$$g(y) = \dfrac{f(x)}{h'(x)} = \dfrac{f(x)}{\frac{d y}{d x}}$$
+
+onde $x = h^{-1} (y)$, ou seja,
+
+$$g(y) d y = f(x) d x$$
+
+\subsection*{Valor Esperado e Variância}
+\subsubsection*{Valor Esperado}
+
+\begin{definition}
+    Se X é uma variável com densidade f(x), definimos seu \textbf{valor esperado (valor médio, esperança)}, por
+    
+    $$\mu = E(X) = \int_{- \infty}^{\infty} x f(x) d x$$
+\end{definition}
+
+\begin{corollary}
+    Se $Y = h(X)$, então 
+    
+    $$E(Y) = E(h(X)) = \int_{- \infty}^{\infty} h(x) f(x) d x$$
+\end{corollary}
+
+\begin{corollary}
+    Sejam a e b constantes quaisquer. Então
+    
+    $$E(a X + b) = a E(X) + b$$
+\end{corollary}
+
+\subsubsection*{Variância}
+
+\begin{definition}
+    A \textbf{variância} e o \textbf{desvio-padrão} de uma variável aleatória X com densidade f(x) e média $E(X) = \mu$ são
+    
+    $$Var(X) = E \left ((X - \mu)^2 \right ) = \int_{- \infty}^{\infty} (x - \mu)^2 f(x) d x$$
+    
+    $$\sigma(X) = \sqrt{Var (X)}$$
+\end{definition}
+
+\begin{corollary}
+    $$Var(a X + b) = a^2 Var(X)$$
+    
+    $$Var(X) = E(X^2) - (E(X))^2$$
+\end{corollary}
+
+\begin{theorem}[Desigualdade de Chebyshev]
+    Esse teorema está definido em 2.4, de forma igual.
+\end{theorem}
 
 \end{document}
