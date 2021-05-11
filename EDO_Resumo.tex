@@ -11,6 +11,8 @@
 \usepackage[utf8]{ inputenc }
 \usepackage{ float }
 \usepackage{ pdfpages }
+\usepackage{ mathrsfs }
+\usepackage{ parselines }
 
 
 \usepackage[brazil]{ babel }
@@ -277,5 +279,202 @@ $$u_1 = \int \dfrac{- \frac{g}{a} y_2}{y_1 y_2' - y_2 y_1} d x$$
 $$u_2 = \int \dfrac{\frac{g}{a} y_1}{y_1 y_2' - y_2 y_1} d x$$
 
 A solução destas integrais, nos dará uma solução particular da equação diferencial não homogênea de segunda ordem.
+
+\section{A Transformada de Laplace (14/04)}
+Uma Transformada de Laplace é da forma
+
+$$F(s) = \int_\alpha^\beta K(s, t) d t$$
+
+onde $K(s, t)$ é uma função dada.
+
+Aqui vamos usar a Transformada de Laplace definida como
+
+$$\mathscr{L}(f(t)) = F(s) = \int_0^\infty e^{ - s t} f(t) d t$$
+
+com $t \geq 0$ e $K(s, t) = e^{- s t}$
+
+Em particular se 
+
+$$\mathscr{L}(f(t)) = \int_0^\infty e^{c t} d t$$
+
+onde se $c \geq 0$ a integral diverge e caso contrario a integral converge.
+
+\begin{definition}
+    Uma função $f(t)$ é dita \textbf{seccionalmente contínua} em um intervalo $I \in \mathbb{R}$ se for contínua exceto em um número finito de pontos: $t_1, \ t_2, \ \cdots, \ t_n$ além disso $\lim_{t \xrightarrow{} t_i} f(t) < M$.
+\end{definition}
+
+\begin{theorem}
+    $\\$
+    \begin{enumerate}
+        \item Se f(t) é seccionalmente contínua para $t \geq a$, se $\| f(t) \| \leq g(t)$ quando $t \geq M$ para alguma constante positiva M e se $\int_M^\infty g(t) d t$ converge então $\int_a^\infty f(t) d t$ também converge.
+        
+        \item Por outro lado se $f(t) \geq g(t) \geq 0, \ t \geq M$ e se $\int_M^\infty g(t) d t$ divergente então $\int_a^\infty f(t) d t$ também diverge.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    $\\$
+    \begin{enumerate}
+        \item Suponha que f seja seccionalmente contínua no intervalo $0 \leq t \leq A$, para qualquer valor de $A > 0$.
+        
+        \item Se $\| f(t) \| \leq K e^{a t}$, para $t \geq M$, $a \in \mathbb{R}$, com K e M necessariamente positivos e constantes reais, neste caso dizemos que f(t) é de ordem exponencial. Então a Transformada de Laplace $\mathscr{L} (f(t)) = F(s)$ para $s > a$.
+    \end{enumerate}
+\end{theorem}
+
+\section{A Transformada de Laplace como uma aplicação linear (19/04)}
+
+Seja U = {conjunto das funções seccionalmente contínuas em $[0, \infty )$ e de ordem exponencial}, U é um espaço vetorial real com as operações de adição e produto por um escalar. V = {conjunto das funções definidas em intervalos da forma ($s_0, \ \infty$) ou [$s_0, \ \infty$), $s_0 \geq - \infty$}, V também é um espaço vetorial real cujas operações são adição e produto por um escalar.
+
+Seja $\mathscr{L}:\ U \ \xrightarrow{} V$, $\mathscr{L}$ é linear pela definição de Transformada de Laplace. Vale que:
+
+\begin{enumerate}
+    \item $\mathscr{L} (f + g) = \mathscr{L} (f) + \mathscr{L} (g)$
+    
+    \item $\mathscr{L} (\lambda f) = \lambda \mathscr{L}(f)$
+\end{enumerate}
+
+\begin{theorem}[Teorema de Lerch]
+    Sejam f e g seccionalmente contínuas e de ordem exponencial e suponhamos que exista um número real $s_0$ tal que $\mathscr{L}(f)(s) = \mathscr{L}(g)(s) \ \forall s > s_0$. Então exceto em pontos de descontinuidade temos que $f(t) = g(t), \ \forall t > 0$
+\end{theorem}
+
+\begin{corollary}
+    Se $\mathscr{L}(y) = \varphi(s)$ a solução é essencialmente única, com isto $\mathscr{L}^{-1} (\varphi) = y$ se e só se $\mathscr{L}(y) = \varphi$
+\end{corollary}
+
+\subsubsection*{Solução de Problemas de Valores Iniciais}
+\begin{theorem}
+    Seja f contínua em $(0, \infty)$ e suponhamos que f' seja seccionalmente contínua e de ordem exponencial em $[0, \infty)$, então
+    
+    $$\mathscr{L}(f') = s (\mathscr{L}(f) - f(0^+), \ onde \ f(0^+) = \lim_{t \xrightarrow{} 0^+} f(t)$$
+\end{theorem}
+
+Caso Geral: $a y'' + b y' + c y = f(t)$, temos $y(s) - \dfrac{(as + b)y(0) + a y'(0) + F(s)}{as^2 + b s + c}$, e simplificando $y(t) = \mathscr{L}^{-1} (y(s))$
+
+\begin{corollary}
+    Se f é uma função contínua cuja transformada de laplace é F(s), não existe outra função contínua tendo a mesma transformada. 
+\end{corollary}
+
+\section{Funções Degrau (26/04)}
+Uma função degrau é do tipo $u_c (t) = 0$ se $t < c$ e $u_c (t) = 1$ se $t \geq c$. A transformada de Laplace de $u_c(t)$ é
+
+$$\mathscr{L}(u_c (t)) = \int_0^\infty e^{-s t} u_c(t) d t = \frac{e^{-c s}}{s}, \ s > 0$$
+
+A função g(t) é definida como uma translação de f por uma distancia c no sentido de t positivo isto é 
+
+$$g(t) = u_c(t) f(t-c)$$
+
+\begin{theorem}
+    Se $\mathscr{L}(f(t))$ existe para $s > a \geq 0$ e se c é uma constante positiva então
+    
+    $$\mathscr{L}(u_c(t) f(t - c)) = e^{-cs} \mathscr{L}(f(t)) = e^{-cs} F(s), \ s > a$$
+    
+    Analogamente, se $f(t) = \mathscr{L}^{-1} (F(s))$, então $u_c(t) f(t-c) = \mathscr{L}^{-1} (e^{-c s} F(s))$.
+\end{theorem}
+
+\begin{theorem}
+    Se $F(s) = \mathscr{L}(f(t))$ existe para $s > a$, $a \geq 0$ e se c é uma constante, então
+    
+    $$\mathscr{L}(e^{ct} f(t)) = F(s-c), \ s > a + c$$
+    
+    Analogamente, se $f(t) = \mathscr{L}^{-1} (F(s))$, então
+    
+    $$e^{c t} f(t) = \mathscr{L}^{-1} (F(s - c))$$
+\end{theorem}
+
+\section{Equações Diferenciais sob a ação de funções descontínuas (28/04)}
+
+Aula de exercícios.
+
+\section{Funções impulso (03/05)}
+Queremos representar forças que agem por um período de tempo muito curto. Por exemplo $ay'' + by' + c y = g(t)$ onde g(t) é grande em um intervalo pequeno $t_0 - t < t < t_0 + t$, e é zero fora deste. 
+
+\begin{definition}
+    Vamos usar a função $d_\tau (t)$ para definir uma "função" impulso unitário $\delta$, que funciona como um impulso de tamanho 1 em $t = 0$, mas é zero para todos os valores de t diferentes de zero.
+    
+    $$\delta (t) = 0, \ t \neq 0$$
+    $$\int_{- \infty}^{+ \infty} \delta (t) d t = 1$$
+    
+    obs.: A "função" $\delta$ definida acima é chamada de função $\delta$ de Dirac. 
+\end{definition}
+
+Um impulso unitário em um ponto arbitrário $t = t_0$ é dado por $\delta (t - t_0)$, então
+
+$$\delta (t - t_0) = 0, \ t \neq t_0$$
+$$\int_{- \infty}^{+ \infty} \delta (t - t_0) d t = 1$$
+
+Sua transformada de Laplace:
+
+$$\mathscr{L}(\delta(t - t_0)) = \lim_{\tau \xrightarrow{} 0} \mathscr{L}(d_\tau (t - t)) = e^{- st_0}$$
+
+E o produto de $\delta$ por uma função f contínua é
+
+$$\int_{- \infty}^{+ \infty} \delta (t - t_0) f(t) d t = \lim_{t \xrightarrow{} t_0} \int_{- \infty}^{+ \infty} d_\tau (t - t_0) f(t) d t = f(t_0)$$
+
+\section{Convolução (05/05)}
+Pôde-se pensar em certas circunstancias a transformada de Laplace como produto de 2 outras transformadas.
+
+\begin{theorem}
+    Seja $F(s) = \mathscr{L}(f(t))$ e $G(s) = \mathscr{L} (g(t))$, para $s > a \geq 0$, então
+    
+    $$H(s) = F(s) \dot G(s) = \mathscr{L}(h(t))$$
+    
+    onde 
+    
+    $$h(t) = \int_0^t f(t - \tau) g(\tau) d \tau = \int_0^t f(\tau) g(t - \tau) d \tau$$
+    
+    obs.: a função $h(s)$ é conhecida como a convolução de f e g; também denotamos $h(t) = f * g$
+\end{theorem}
+
+\begin{corollary}
+    Propriedades de $f * g$:
+    
+    \begin{enumerate}
+        \item $f * g = g * f$
+        \item $f * (g_1 + g_2) = f * g_1 + f * g_2$
+        \item $(f * g) * h = f * (g * h)$
+        \item $f * 0 = 0, \ 0 * f = 0$
+    \end{enumerate}
+\end{corollary}
+
+Pelo teorema, vale que
+
+$$F(s) G(s) = \int_0^\infty e^{- st} h(t) d t = \mathscr{L}(h(t))$$
+
+\section{Sistemas Lineares (10/05)}
+\begin{definition}
+    Definimos como a exponencial da matriz A
+    
+    $$e^A = \sum_{k = 0}^\infty \frac{A^k}{k!}$$
+\end{definition}
+
+\begin{definition}
+    Definimos como norma do operador A
+    
+    $$||A|| = max \{ |Ax|, |x| \leq 1 \} \subset I, \ \text{ onde} I \subset \mathbb{R} \text{ é um intervalo compacto.}$$
+    
+    e $||A^k|| \leq ||A||^k, \ k \in \mathbb{N}$ 
+\end{definition}
+
+\begin{corollary}
+    Sejam P, S, A operadores em $\mathbb{R}^n$
+    
+    \begin{enumerate}
+        \item Se $Q = P A P^{-1}$, então $e^Q = P e^A P^{-1}$
+        
+        \item Se $S A = A S$, então $e^{S + A} = e^S e^A$
+        
+        \item $e^{-S} = (e^S)^{-1}$
+        
+        \item Para $n = 2$ temos que $ A = \left [ \begin{array}{cc}
+             a & -b \\
+             b & a
+        \end{array} \right ]$, então
+        
+        $$e^A = e^a \left [ \begin{array}{cc}
+             \cos{b} & -\sin{b} \\
+             \sin{b} & \cos{b}
+        \end{array} \right ]$$
+    \end{enumerate}
+\end{corollary}
 
 \end{document}
