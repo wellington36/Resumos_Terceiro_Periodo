@@ -450,7 +450,7 @@ $$F(s) G(s) = \int_0^\infty e^{- st} h(t) d t = \mathscr{L}(h(t))$$
 \begin{definition}
     Definimos como norma do operador A
     
-    $$||A|| = max \{ |Ax|, |x| \leq 1 \} \subset I, \ \text{ onde} I \subset \mathbb{R} \text{ é um intervalo compacto.}$$
+    $$||A|| = max \{ |Ax|, |x| \leq 1 \} \subset I, \text{ onde } I \subset \mathbb{R} \text{ é um intervalo compacto.}$$
     
     e $||A^k|| \leq ||A||^k, \ k \in \mathbb{N}$ 
 \end{definition}
@@ -461,7 +461,7 @@ $$F(s) G(s) = \int_0^\infty e^{- st} h(t) d t = \mathscr{L}(h(t))$$
     \begin{enumerate}
         \item Se $Q = P A P^{-1}$, então $e^Q = P e^A P^{-1}$
         
-        \item Se $S A = A S$, então $e^{S + A} = e^S e^A$
+        \item Se $S A = A S$, então $e^{S + A} = e^S \cdot    e^A$
         
         \item $e^{-S} = (e^S)^{-1}$
         
@@ -476,5 +476,118 @@ $$F(s) G(s) = \int_0^\infty e^{- st} h(t) d t = \mathscr{L}(h(t))$$
         \end{array} \right ]$$
     \end{enumerate}
 \end{corollary}
+
+\section{Teorema importante (12/05)}
+
+\begin{lemma}
+    $$\dfrac{d}{d t} e^{t A} = A e^{t A} = e^{t A} . A$$
+\end{lemma}
+
+\begin{theorem}
+    Seja A um operador em $\mathbb{R}^n$. A única solução do problema do problema $X' = A X, \ X(0) = X_0 \in \mathbb{R}^n$ é $X(t) = e^{tA} X_0$, ou $X(t) = e^{t (P B P^{-1})} X(0)$, onde $A = P B P^{-1}$ (B é a matriz com os autovalores e P dos autovetores).
+\end{theorem}
+
+\section{Autovalores repetidos (17/05)}
+Quando os autovalores são repetidos devemos escrever B, como (no caso $n = 2$):
+
+$$
+\left [
+\begin{array}{cc}
+    \lambda_1 & 1 \\
+    0 & \lambda_2
+\end{array}
+\right ]
+$$
+
+podendo trocar o 1 por outro número diferente de 0.\\
+
+E para encontrar o outro autovetor respectivo podemos tomas um genérico $v_2 = \left [ \begin{array}{c}
+     a \\
+     b
+\end{array}
+\right ]$, e usamos que $v_1 + v_2$ é um autovetor. Para encontrar valores para a e b.
+
+\section{Autovalores complexos e Plano Traço-Determinante (19/05)}
+Se A tem autovalores complexos, segue um exemplo:
+
+\subsubsection*{Exemplo:}
+
+Seja $\begin{array}{cc}
+    x' & = - \frac{1}{2}x + y \\
+    y' & = - x - \frac{1}{2}y
+\end{array}$\\
+
+Então,
+
+$$X' = \left [ \begin{array}{cc}
+    -\frac{1}{2} & 1 \\
+    -1 & -\frac{1}{2}
+\end{array} \right ] X$$
+
+Possui autovalores: $u = - \frac{1}{2} + i$, $\overline{u} = - \frac{1}{2} - i$
+
+Resolvendo
+
+$$\left [ \begin{array}{cc}
+    - \frac{1}{2} & 1 \\
+    -1 & - \frac{1}{2}
+\end{array} \right ] \left [ \begin{array}{c}
+    x \\
+    y 
+\end{array} \right ] = \left (- \frac{1}{2} + i \right ) \left [ \begin{array}{c}
+    x \\
+    y 
+\end{array} \right ]$$
+
+Chegamos em $y = i x$
+
+Uma opção de autovetor é (com $x = 1$):
+
+$$\varphi = \left [ \begin{array}{c}
+    1 \\
+    0 
+\end{array} \right ] + i \left [ \begin{array}{c}
+    0 \\
+    1 
+\end{array} \right ]$$
+
+Então temos
+
+$$P = \left [ \begin{array}{cc}
+    0 & 1 \\
+    1 & 0
+\end{array} \right ]$$
+
+Tem solução
+
+$$\left [ \begin{array}{c}
+    x(t) \\
+    y(t) 
+\end{array} \right ] = e^{- \frac{t}{2}} \left [ \begin{array}{cc}
+    0 & 1 \\
+    1 & 0
+\end{array} \right ] \left [ \begin{array}{cc}
+    \cos{t} & - \sin{t} \\
+    \sin{t} & \cos{t}
+\end{array} \right ] \left [ \begin{array}{cc}
+    0 & 1 \\
+    1 & 0
+\end{array} \right ] \left [ \begin{array}{c}
+    x_0 \\
+    y_0
+\end{array} \right ]$$
+
+\subsection*{Plano Traço-Determinante}
+Dado $A = \left [ \begin{array}{cc}
+    a & b \\
+    c & d
+\end{array} \right ]$, podemos determinar como vai ser a solução do sistema olhando para o plano formado pelo traço de A e o determinante de A (imagem feita em aula):
+
+\begin{figure}
+    \centering
+    \includegraphics{edo1.png}
+    \caption{edo1}
+    \label{fig:my_label}
+\end{figure}
 
 \end{document}
