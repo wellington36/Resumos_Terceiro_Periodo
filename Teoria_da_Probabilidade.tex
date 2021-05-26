@@ -150,7 +150,7 @@ Se F é a função de distribuição acumulada de uma variável aleatória discr
 
 \begin{enumerate}[i.]
     \item F é não-decrescente;
-    \item $F(- \infty) = 0$ e $F(+ \infty) = 1$ (ou seja, $\lim_{x\rightarrow{} - \infty} F(x) = 0$ e $\lim_{x\rightarrow{} + \infty} F(x) = 1$;
+    \item $F(- \infty) = 0$ e $F(+ \infty) = 1$ (ou seja, $\lim_{x\rightarrow{} - \infty} F(x) = 0$ e $\lim_{x\rightarrow{} + \infty} F(x) = 1$);
     \item F é constante por partes (isto é, uma função-escada).
 \end{enumerate}
 \end{corollary}
@@ -231,8 +231,8 @@ Se X e Y são independentes, então $E(X Y) = E(X) E(Y)$.
     Sejam a e b constantes quaisquer. então
     
     $$Var(a X + b) = a^2 Var(X)$$
-    $$\sigma (a X + b) = |a| \dot \sigma(X)$$
-    $$D M(a X + b) = |a| \dot D M(X)$$
+    $$\sigma (a X + b) = |a| \cdot \sigma(X)$$
+    $$D M(a X + b) = |a| \cdot D M(X)$$
 \end{corollary}
 
 \begin{corollary}
@@ -259,7 +259,7 @@ Se X e Y são independentes, então $E(X Y) = E(X) E(Y)$.
 \begin{definition}
     A \textbf{covariância} entre duas variáveis X e Y é 
     
-    $$Cov (X, Y) = E[(X - E(X)) \dot (Y - E(Y))]$$
+    $$Cov (X, Y) = E[(X - E(X)) \cdot(Y - E(Y))]$$
 \end{definition}
 
 \begin{corollary}
@@ -300,7 +300,7 @@ Se X e Y são independentes, então $E(X Y) = E(X) E(Y)$.
 Se os valores assumidos por uma certa variável aleatória X são equiprováveis dizemos que X tem um \textbf{distribuição uniforme}.
 
 \subsection{Brevíssima Revisão de Analise Combinatória}
-Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.wikipedia.org/wiki/Combinat\%C3\%B3ria}{see}
+Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.wikipedia.org/wiki/Combinat\%C3\%B3ria}{see}.
 
 \subsection{Processo de Bernoulli}
 
@@ -375,7 +375,7 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
 
 \subsection*{3.4 Processo de Poisson}
 \begin{definition}
-    A \textbf{distribuição de Poisson} dizemos $X \backsim Poi (\mu)$ que no geral é $\lim_{n \rightarrow{} \infty} Bin (k; n, \frac{\mu}{n} = Poi (k; \mu)$
+    A \textbf{distribuição de Poisson} dizemos $X \backsim Poi (\mu)$ que no geral é $\lim_{n \rightarrow{} \infty} Bin (k; n, \frac{\mu}{n}) = Poi (k; \mu)$
 \end{definition}
 
 \begin{corollary}
@@ -414,9 +414,9 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
 \end{definition}
 
 \begin{corollary}
-    Se $F(x)$ é a f.d.a. de uma variavel read X, então
+    Se $F(x)$ é a f.d.a. de uma variável real X, então
     
-    $$F é \text{não-decrescente}$$
+    $$F \text{ é não-decrescente}$$
     
     $$F(- \infty) = P(X \leq - \infty) = 0 \ \text{ e } \ F(+\infty) = P(X \in \mathbb{R)} = 1$$
     
@@ -434,7 +434,7 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
 \subsubsection*{Função Densidade de Probabilidade}
 
 \begin{definition}
-    A \textbf{função densidade de probabilidade (fdp)} de X é a derivada da função acumulada:
+    A \textbf{função densidade de probabilidade (f.d.p.)} de X é a derivada da função acumulada:
     
     $$f_X(x) = \lim_{\Delta x \rightarrow{} 0} \dfrac{F(x + \Delta x) - F(x)}{\Delta x} = F'_X (x)$$
 \end{definition}
@@ -713,5 +713,49 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \begin{definition}
     Os gráficos de $E[X|y]$ (uma função de y) e $E[Y|x]$ (uma função de x) são chamados de curvas de regressão (de X sobre y e vice-versa, respectivamente).
 \end{definition}
+
+\subsection*{6.3 - Funções de Variáveis Contínuas}
+\begin{theorem}
+    Sejam X e Y variáveis aleatórias com densidade $f_{X, Y} (x, y)$. Sejam $W = g(X, Y)$ e $Z = h(X, Y)$ duas novas variáveis. Então a densidade conjunta de W e Z é dada por
+    
+    $$f_{W,Z} (w, z) = f_{X, Y} (x, y) \cdot |J|$$
+    
+    onde J é o Jacobiano da Transformada $T : (x, y) \rightarrow{} (g(x, y), h(x, y))$:
+    
+    $$J = \frac{\partial (x,y)}{\partial (w, z)} = \left | \begin{array}{cc}
+        \frac{\partial x}{\partial w} & \frac{\partial x}{\partial z} \\
+        \frac{\partial y}{\partial w} & \frac{\partial y}{\partial z}
+    \end{array} \right |$$
+\end{theorem}
+
+\section{Somas e Médias de Variáveis Aleatórias}
+\subsection*{7.2 Somas das Principais Distribuições Aleatórias}
+\begin{definition}
+    Seja ($X_1, X_2, \cdots, X_n$) uma AAS (Amostragem Aleatória Simples) tomada a partir de uma distribuição de uma v.a. X. Definimos a \textbf{soma da amostra} e a \textbf{média amostral} respectivamente por
+    
+    $$S_n = X_1 + X_2 + \cdots + X_n$$
+    
+    $$\overline{X} = \frac{S_n}{n} = \frac{X_1 + \cdots + X_n}{n}$$
+\end{definition}
+
+\begin{corollary}
+    Se $X_1 \backsim N(\mu_1, \sigma_1^2)$ e $X_2 \backsim N(\mu_2, \sigma_2^2)$ são independentes, então qualquer combinação linear não-nula $X = a X_1 + b X_2$, também terá distribuição normal, a saber, $X \backsim N(\mu, \sigma^2)$ onde $\mu = a \mu_1 + b \mu_2$ e $\sigma^2 = a^2 \sigma_1 + b^2 \sigma_2$. Em suma:
+    
+    $$
+    \left . \begin{array}{lll}
+        X_1 \backsim N (\mu_1, \sigma_1^2) \\
+        X_2 \backsim N (\mu_2, \sigma_2^2) \\
+        X_1 \text{ e } X_2 \text{ independentes}
+    \end{array} \right \} \Rightarrow a X_1 + b X_2 \backsim N(a \mu_1 + b \mu_2, a^2 \sigma_1 + b^2 \sigma_2)
+    $$
+\end{corollary}
+
+\begin{theorem}
+    Se $X_1, \cdots, X_n$ são independentes da distribuição $N(\mu, \sigma^2)$ então
+    
+    $$\frac{S_n - n \mu}{\sqrt{n} \sigma} \backsim N(0, 1)$$
+    
+    $$\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \backsim N(0, 1)$$
+\end{theorem}
 
 \end{document}

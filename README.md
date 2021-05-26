@@ -1,10 +1,10 @@
 # Resumos Terceiro Período
-  Resumos criados por [mim](https://github.com/wellington36) de livre acesso, comunique qualquer problema ou erro nos resumos :)
+  Por favor, comunique qualquer problema ou erro nos resumos para [mim](https://github.com/wellington36):)
 
 #### Resumos gerais:
 
 - EDO 			    (Até dia 19 de maio)
-- Probabilidade (Até 6.2 das notas de aula)
+- Probabilidade (Até 7.2 das notas de aula)
 
 #### Resumos especificos:
 
