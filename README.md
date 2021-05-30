@@ -4,7 +4,7 @@
 #### Resumos gerais:
 
 - EDO 			    (Até dia 19 de maio)
-- Probabilidade (Até 7.2 das notas de aula)
+- Probabilidade (Até 7.3 das notas de aula)
 
 #### Resumos especificos:
 

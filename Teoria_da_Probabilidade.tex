@@ -446,7 +446,7 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
     
     Em particular, como $F(- \infty) = 0$, note que
     
-    $$F(x) = P(X \leq x) = \lim{-\infty}^x f(t) d t$$
+    $$F(x) = P(X \leq x) = \int_{-\infty}^x f(t) d t$$
 \end{corollary}
 
 \begin{corollary}
@@ -475,7 +475,7 @@ $$g(y) d y = f(x) d x$$
 \subsubsection*{Valor Esperado}
 
 \begin{definition}
-    Se X é uma variável com densidade f(x), definimos seu \textbf{valor esperado (valor médio, esperança)}, por
+    Se X é uma variável aleatória com densidade f(x), definimos seu \textbf{valor esperado (valor médio, esperança)}, por
     
     $$\mu = E(X) = \int_{- \infty}^{\infty} x f(x) d x$$
 \end{definition}
@@ -515,9 +515,9 @@ $$g(y) d y = f(x) d x$$
 \section{Principais Distribuições Contínuas}
 \subsection*{5.1 Distribuição Uniforme}
 \begin{definition}
-    Dizemos que a variável aleatória X tem \textbf{distribuição uniforme no intervalo [a, b]} (denotada por $X \backsim E[a, b]$) quando sua densidade é dada por
+    Dizemos que a variável aleatória X tem \textbf{distribuição uniforme no intervalo [a, b]} (denotada por $X \backsim U[a, b]$) quando sua densidade é dada por
     
-    $$F(x) = \frac{1}{b - a}, \text{ se } a \leq x \leq b \text{ e } F(x) = 0 ,\text{ caso contrário}$$
+    $$f(x) = \frac{1}{b - a}, \text{ se } a \leq x \leq b \text{ e } f(x) = 0 ,\text{ caso contrário}$$
 \end{definition}
 
 \begin{corollary}
@@ -536,7 +536,7 @@ $$P(X = k) = \dfrac{(\lambda t)^k}{k!} e^{-\lambda t}$$
     
     e sua função de distribuição acumulada é
     
-    $$f(t) = 1 - e^{- \lambda t}, \ \text{ se } \ t \geq 0 \text{ e } f(t) = 0 \text{ se } t < 0$$
+    $$F(t) = 1 - e^{- \lambda t}, \ \text{ se } \ t \geq 0 \text{ e } F(t) = 0 \text{ se } t < 0$$
 \end{definition}
 
 \begin{corollary}
@@ -550,9 +550,8 @@ $$P(X = k) = \dfrac{(\lambda t)^k}{k!} e^{-\lambda t}$$
 \end{corollary}
                             
 \begin{corollary}
-    Se $T \backsim Exp(\lambda)$ e $Y = a T$, então $Y \backsim Exp(\frac{\lambda}{a})    $$\lambda(t) = \lim_{\Delta t \rightarrow{} 0} TMF = \dfrac{F'(t)}{1 - F(t)} = - \dfrac{R'(t)}{R(t)}$$
+    Se $T \backsim Exp(\lambda)$ e $Y = a T$, então $Y \backsim Exp(\frac{\lambda}{a})$
 
-$ 
 \end{corollary}
 
 \begin{corollary}
@@ -629,7 +628,7 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \end{definition}
 
 \begin{definition}
-    A \textbf{taxa média de falhas} de um equipamento em um instante $[t, t + \Delta t]$ é a chance de ele falhar nos próximos $\Delta t$ dado que ainda não falhou, dividido por $\Delta t$, isto é
+    A \textbf{taxa média de falhas} de um equipamento em um intervalo $[t, t + \Delta t]$ é a chance de ele falhar nos próximos $\Delta t$ dado que ainda não falhou, dividido por $\Delta t$, isto é
     
     $$TMF = \dfrac{P(T \leq t + \Delta t | T > t)}{\Delta t} = \dfrac{F(t + \Delta t) - F(t)}{(1 - F(t)) \Delta t} = - \dfrac{R(t + \Delta t) - R(t)}{R(t).\Delta t}$$
     
@@ -647,7 +646,7 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
     
     $$P((X, Y) \in R) = \int \int_R f(x, y) d A$$
     
-    onde R é um subconjunto qualquer do plano XY (isto é, uma região dentro do plano $\mathbb{R}^2$ ). Consequentemente, uma função de densidade conjunta tem de satisfazer as seguintes propriedades básicas:
+    onde R é um subconjunto qualquer do plano XY (isto é, uma região dentro do plano $\mathbb{R}^2$). Consequentemente, uma função de densidade conjunta tem de satisfazer as seguintes propriedades básicas:
     
     $$f(x, y) \geq 0 \ \forall (x, y) \in \mathbb{R}^2$$
     
@@ -707,14 +706,14 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \end{corollary}
 
 \begin{corollary}
-    Se X e Y são independentes, $Cov (X, Y) = 0$ e $E(X | y) = E(X)$ apara valores validos de y (isto é, sempre que $f_Y (y) \neq 0$).
+    Se X e Y são independentes, $\text{Cov} (X, Y) = 0$ e $E(X | y) = E(X)$ para valores validos de y (isto é, sempre que $f_Y (y) \neq 0$).
 \end{corollary}
 
 \begin{definition}
-    Os gráficos de $E[X|y]$ (uma função de y) e $E[Y|x]$ (uma função de x) são chamados de curvas de regressão (de X sobre y e vice-versa, respectivamente).
+    Os gráficos de $E[X|y]$ (uma função de y) e $E[Y|x]$ (uma função de x) são chamados de \textbf{curvas de regressão} (de X sobre y e vice-versa, respectivamente).
 \end{definition}
 
-\subsection*{6.3 - Funções de Variáveis Contínuas}
+\subsection*{6.3 Funções de Variáveis Contínuas}
 \begin{theorem}
     Sejam X e Y variáveis aleatórias com densidade $f_{X, Y} (x, y)$. Sejam $W = g(X, Y)$ e $Z = h(X, Y)$ duas novas variáveis. Então a densidade conjunta de W e Z é dada por
     
@@ -729,6 +728,9 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \end{theorem}
 
 \section{Somas e Médias de Variáveis Aleatórias}
+\subsection*{7.1 Motivação}
+Se motive... e continue.
+
 \subsection*{7.2 Somas das Principais Distribuições Aleatórias}
 \begin{definition}
     Seja ($X_1, X_2, \cdots, X_n$) uma AAS (Amostragem Aleatória Simples) tomada a partir de uma distribuição de uma v.a. X. Definimos a \textbf{soma da amostra} e a \textbf{média amostral} respectivamente por
@@ -751,11 +753,31 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \end{corollary}
 
 \begin{theorem}
-    Se $X_1, \cdots, X_n$ são independentes da distribuição $N(\mu, \sigma^2)$ então
+    Se $X_1, \cdots, X_n$ são amostras independentes da distribuição $N(\mu, \sigma^2)$ então
     
     $$\frac{S_n - n \mu}{\sqrt{n} \sigma} \backsim N(0, 1)$$
     
     $$\frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \backsim N(0, 1)$$
+\end{theorem}
+
+\subsection*{7.3 Lei dos Grandes Números}
+\begin{lemma}
+Se $X_1, X_2, \cdots, X_n$ são amostragens aleatórias simples de uma variável X com $E(X) = \mu$ e $\sigma(X) = \sigma$, então
+
+$$E(S_n) = n \mu; \ \text{Var}(S_n) = n \sigma^2; \ \sigma(S_n) = \sqrt{n} \sigma$$
+
+$$E(\overline{X}) = \mu; \ \text{Var}(\overline{X}) = \frac{\sigma^2}{n}; \ \sigma(\overline{X}) = \frac{\sigma}{\sqrt{n}}$$
+\end{lemma}
+
+\begin{theorem}[Lei dos Grandes Números, Bernoulli, 1713]
+Suponha que X tem uma distribuição tal que $\mu = E(X)$ e $\sigma^2 = \text{Var}(X)$ são finitos. Seja $\overline{X} = \frac{X_1 + X_2 + \cdots + X_n}{n}$ onde $X_1, X_2, \cdots, X_n$ são provas independentes com a distribuição X. Então, para qualquer $\varepsilon > 0$ fixo, temos:
+
+$$P(|\overline{X} - \mu| \geq \varepsilon) \rightarrow 0$$
+
+quando $n \rightarrow \infty$. E também quando $n \rightarrow \infty$:
+
+$$P(|\overline{X} - \mu| < \varepsilon) \rightarrow 1$$
+
 \end{theorem}
 
 \end{document}
