@@ -508,74 +508,23 @@ E para encontrar o outro autovetor respectivo podemos tomas um genérico $v_2 = 
 \right ]$, e usamos que $v_1 + v_2$ é um autovetor. Para encontrar valores para a e b.
 
 \section{Autovalores complexos e Plano Traço-Determinante (19/05)}
-Se A tem autovalores complexos, segue um exemplo:
+Se temos $X' = AX$, tal que os autovalores de A são $\lambda_1 = \alpha + \beta i$, $\lambda_2 = \alpha - \beta i$, com autovalores $\varphi_1, \ \varphi_2$, então tome:
 
-\subsubsection*{Exemplo:}
+$$u = \frac{\varphi_1 + \varphi_2}{2}, \ v = \frac{\varphi_1 - \varphi_2}{2 i}$$
 
-Seja $\begin{array}{cc}
-    x' & = - \frac{1}{2}x + y \\
-    y' & = - x - \frac{1}{2}y
-\end{array}$\\
+Assim, u e v são vetores reais, que formam uma base tal qual gera um representação de A:
 
-Então,
-
-$$X' = \left [ \begin{array}{cc}
-    -\frac{1}{2} & 1 \\
-    -1 & -\frac{1}{2}
-\end{array} \right ] X$$
-
-Possui autovalores: $u = - \frac{1}{2} + i$, $\overline{u} = - \frac{1}{2} - i$
-
-Resolvendo
-
-$$\left [ \begin{array}{cc}
-    - \frac{1}{2} & 1 \\
-    -1 & - \frac{1}{2}
-\end{array} \right ] \left [ \begin{array}{c}
-    x \\
-    y 
-\end{array} \right ] = \left (- \frac{1}{2} + i \right ) \left [ \begin{array}{c}
-    x \\
-    y 
+$$B = \left [ \begin{array}{cc}
+    \alpha & - \beta \\
+    \beta & \alpha 
 \end{array} \right ]$$
 
-Chegamos em $y = i x$
+Isto é, vale que
 
-Uma opção de autovetor é (com $x = 1$):
+$$A = PBP^{-1}$$
 
-$$\varphi = \left [ \begin{array}{c}
-    1 \\
-    0 
-\end{array} \right ] + i \left [ \begin{array}{c}
-    0 \\
-    1 
-\end{array} \right ]$$
+onde $P = [v u]$.
 
-Então temos
-
-$$P = \left [ \begin{array}{cc}
-    0 & 1 \\
-    1 & 0
-\end{array} \right ]$$
-
-Tem solução
-
-$$\left [ \begin{array}{c}
-    x(t) \\
-    y(t) 
-\end{array} \right ] = e^{- \frac{t}{2}} \left [ \begin{array}{cc}
-    0 & 1 \\
-    1 & 0
-\end{array} \right ] \left [ \begin{array}{cc}
-    \cos{t} & - \sin{t} \\
-    \sin{t} & \cos{t}
-\end{array} \right ] \left [ \begin{array}{cc}
-    0 & 1 \\
-    1 & 0
-\end{array} \right ] \left [ \begin{array}{c}
-    x_0 \\
-    y_0
-\end{array} \right ]$$
 
 \subsection*{Plano Traço-Determinante}
 Dado $A = \left [ \begin{array}{cc}
@@ -589,5 +538,57 @@ Dado $A = \left [ \begin{array}{cc}
     \caption{edo1}
     \label{fig:my_label}
 \end{figure}
+
+
+\section{Sistemas Lineares não homogêneos (26/05)}
+\begin{theorem}
+    Dado o sistema não homogêneo $X' = AX + B(t)$, a solução do sistema é $X(t) = X_h(t) + X_p(t)$ onde $X_h(t)$ é solução da equação homogênea ($X' = A X$) e $X_p(t)$ é uma solução particular do sistema.
+    
+    Onde, a solução particular é tal que
+    
+    $$X_p(t) = e^{t A} \left [ \int_0^t e^{- A s} B(s) d s + K \right ], \ K \in \mathbb{R}^n$$
+\end{theorem}
+
+\section{Sistema não linear (31/05)}
+\begin{lemma}
+    Os pontos de equilíbrio do sistema não linear
+    
+    $$ \left \{
+    \begin{array}{ll}
+        x' = F(x, y) \\
+        y' = G(x, y)
+    \end{array} \right .
+    $$
+    
+    É dado por $(x_0, y_0)$ tal que $F(x_0, y_0) = G(x_0, y_0) = 0$ 
+\end{lemma}
+
+\begin{theorem}
+    Sejam $F(x, y)$ e $G(x, y)$ funções cujas derivadas parciais de segunda ordem são continuas. Então o sistema
+    
+    $$ \left \{
+    \begin{array}{ll}
+        x' = F(x, y) \\
+        y' = G(x, y)
+    \end{array} \right .
+    $$
+    
+    É bem aproximado na vizinhança do ponto crítico $x_0, y_0)$ pelo sistema linear
+    
+    $$ \left \{
+    \begin{array}{ll}
+        x' = a x + b y \\
+        y' = c x + d y
+    \end{array} \right .
+    $$
+    
+    onde $\left [ \begin{array}{cc}
+        a & b \\
+        c & d
+    \end{array} \right ]$ é Jacobiano de $F(x, y)$ e $G(x, y)$ no ponto $(x_0, y_0)$
+\end{theorem}
+
+\section{Pendulo e Predador x Presa (02/06)}
+Aula de aplicações.
 
 \end{document}
