@@ -13,8 +13,9 @@
 \usepackage{enumerate}
 
 
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
 
-\usepackage[brazil]{babel}
 
 \pagestyle{plain}
 
@@ -329,7 +330,7 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
 \begin{corollary}
     $$BinomialDen (k;n, p) = P(X = k) = {n \choose k} p^k q^{n-k}$$
     
-    $$BinomialDist (k; n, p) = P(X \leq k) = \sum_{i = 0}^k {n \choose k} p^k q^{n - k}$$
+    $$BinomialDist (k;n, p) = P(X \leq k) = \sum_{i = 0}^k {n \choose k} p^k q^{n - k}$$
 \end{corollary}
 
 \begin{corollary}
@@ -381,7 +382,7 @@ Aqui trata-se de conteúdo do ensino médio em caso de dúvida \href{https://pt.
 \begin{corollary}
     Se $X \backsim Poi (\mu)$, tem-se
     
-    $$P(X = k) = \frac{\mu^}{k!} e^{-\mu}$$
+    $$P(X = k) = \frac{\mu^k}{k!} e^{-\mu}$$
     
     $$E(X) = Var(X) = \mu$$
 \end{corollary}
@@ -779,5 +780,83 @@ quando $n \rightarrow \infty$. E também quando $n \rightarrow \infty$:
 $$P(|\overline{X} - \mu| < \varepsilon) \rightarrow 1$$
 
 \end{theorem}
+
+\subsection*{7.4 Teorema Central do Limite (TCL)}
+\subsubsection*{TCL para Distribuição Binomial}
+\begin{theorem}[Aproximação Normal à Distribuição Binomial]
+Seja $X \backsim Bin(n, p)$. Então
+
+$$\lim_{n \rightarrow \infty} \sqrt{n p q} \text{BinomialDen}([np + a \sqrt{n p q} ]; n, p) = \phi(a)$$
+
+onde $\phi(\alpha) = \text{NormalDen}(\alpha)$ é a densidade da normal padronizada, isto é,
+
+$$\phi(\alpha) = \frac{1}{\sqrt{2 \pi}}e^{-\alpha^2/2}$$
+\end{theorem}
+
+\begin{theorem}[Aproximação Normal à Binomial]
+Seja $X \backsim Bin(n, p)$, e sejam a e b números inteiros fixos. Defina
+
+$$a^* = \frac{a - n p - \frac{1}{2}}{\sqrt{n p q}} \text{ e } b^* = \frac{b - n p + \frac{1}{2}}{\sqrt{n p q}}$$
+
+Então
+
+$$\lim_{n \rightarrow \infty} P(a \leq X \leq b) = \int_{a^*}^{b^*}\phi(t) d t$$
+\end{theorem}
+
+\subsubsection*{TCL (Caso Geral)}
+\begin{theorem}[Teorema Central do Limite]
+Sejam $X_1, X_2, \cdots, X_n$ amostras independentes de uma densidade com valor esperado $\mu$ e variância $\sigma^2$. Seja
+
+$$X^* = \sqrt{n} \frac{\overline{X} - \mu}{\sigma} = \frac{S_n - n \mu}{\sigma \sqrt{n}}$$
+
+Então
+
+$$\lim_{n \rightarrow \infty} P(a \leq X^* \leq b) = \int_a^b \phi(x) d x$$
+
+isto é, a distribuição $X^*$ se aproxima (em áreas) da distribuição normal padrão.
+\end{theorem}
+
+\subsection*{7.5 Aplicação á Estatística: Distribuição Amostral de uma Proporção}
+
+não tem nada aqui (só aplicações) pode seguir...
+
+\section{Outras Distribuições Amostrais}
+\subsection*{8.1 Estimação de Parâmetros}
+
+\begin{definition}
+    Um \textbf{estimador} $\hat{\theta}$ de um parâmetro $\theta$ (da distribuição X, isto é, da população) é uma função das observações da amostra, isto é
+    
+    $$\hat{\theta} = \hat{\theta}(X_1, X_2, \cdots, X_n)$$
+\end{definition}
+
+\begin{definition}
+    Um estimador $\hat{\theta}$ é \textbf{não-viesado} quando
+    
+    $$E(\hat{\theta}) = \theta$$
+    
+    E o viés de um estimador é dado por
+    
+    $$\text{Viés} (\hat{\theta}) = E(\hat{\theta}) - \theta$$
+\end{definition}
+
+\begin{definition}
+    Um estimador $\hat{\theta}_1$ é dito \textbf{mais eficiente} do que $\hat{\theta}_2$ quando
+    
+    $$Var(\hat{\theta}_1) < Var(\hat{\theta}_2)$$
+\end{definition}
+
+\begin{definition}
+    Um(a sequencia de) estimador(es) $\hat{\theta}$ é dito \textbf{consistente} quando, $\forall \varepsilon > 0$ fixo,
+    
+    $$\lim_{n \rightarrow \infty} P(|\hat{\theta} - \theta| > \varepsilon) = 0$$
+\end{definition}
+
+\begin{definition}
+    Se 
+    
+    $$\lim_{n \rightarrow \infty} Vi\acute{e}s(\hat{\theta}) = 0 \text{ e } \lim_{n \rightarrow \infty} Var(\hat{\theta}) = 0$$
+    
+    então $\hat{\theta}$ é consistente.
+\end{definition}
 
 \end{document}
