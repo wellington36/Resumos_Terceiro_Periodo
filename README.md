@@ -1,5 +1,5 @@
 # Resumos Terceiro Período
-  Por favor, comunique qualquer problema ou erro nos resumos para [mim](https://github.com/wellington36):)
+  Por favor, comunique qualquer problema ou erro nos resumos para [mim](https://github.com/wellington36) :)
 
 #### Resumos gerais:
 
