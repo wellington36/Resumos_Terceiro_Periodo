@@ -1,4 +1,4 @@
-# Resumos Terceiro Período
+# Resumos terceiro período
   Por favor, comunique qualquer problema ou erro nos resumos para [mim](https://github.com/wellington36) :)
 
 #### Resumos gerais:
