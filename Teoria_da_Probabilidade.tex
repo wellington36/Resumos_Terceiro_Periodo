@@ -667,7 +667,7 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \begin{definition}
     Quando a função de densidade conjunta é constante dentro de um certo conjunto R (e 0 fora dele), dizemos que a variável (x, y) é \textbf{distribuída uniformemente} em R. Neste caso, temos
     
-    $$f(x, y) = \frac{1}{Área(R)} \text{ se } (x, y) \in R \text{ e } f(x, y) = 0, \text{ caso contrário}$$
+    $$f(x, y) = \frac{1}{\acute{A}rea(R)} \text{ se } (x, y) \in R \text{ e } f(x, y) = 0, \text{ caso contrário}$$
 \end{definition}
 
 \subsection*{6.2 Distribuições Marginais e Condicionais; Covariância e Correlação}
@@ -703,11 +703,11 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
 \end{definition}
 
 \begin{corollary}
-    X e Y são independentes se, e somente se, f(x, y) é da forma $g(x) h(y)$ num retângulo da forma $[a, b] \times [c, d]$ (e 0 caso contrario; note que este retângulo pode ser "infinito").
+    X e Y são \textbf{independentes} se, e somente se, f(x, y) é da forma $g(x) h(y)$ num retângulo da forma $[a, b] \times [c, d]$ (e 0 caso contrario; note que este retângulo pode ser "infinito").
 \end{corollary}
 
 \begin{corollary}
-    Se X e Y são independentes, $\text{Cov} (X, Y) = 0$ e $E(X | y) = E(X)$ para valores validos de y (isto é, sempre que $f_Y (y) \neq 0$).
+    Se X e Y são \textbf{independentes}, $\text{Cov} (X, Y) = 0$ e $E(X | y) = E(X)$ para valores validos de y (isto é, sempre que $f_Y (y) \neq 0$).
 \end{corollary}
 
 \begin{definition}
@@ -818,7 +818,7 @@ isto é, a distribuição $X^*$ se aproxima (em áreas) da distribuição normal
 
 \subsection*{7.5 Aplicação á Estatística: Distribuição Amostral de uma Proporção}
 
-não tem nada aqui (só aplicações) pode seguir...
+Não tem nada aqui (só aplicações) pode seguir...
 
 \section{Outras Distribuições Amostrais}
 \subsection*{8.1 Estimação de Parâmetros}
@@ -858,5 +858,110 @@ não tem nada aqui (só aplicações) pode seguir...
     
     então $\hat{\theta}$ é consistente.
 \end{definition}
+
+\subsection*{8.2 Estimadores pontuais da variância}
+\subsubsection*{Média Conhecida}
+Suponha que a média $\mu = E(X)$ é conhecida, e queremos saber o valor de $\sigma^2 = Var(X)$, em possível estimador para $E((X - \mu)^2)$ é
+
+$$\hat{\sigma} = \frac{\sum_{i = 1}^{n} (X_i - \mu)^2}{n}$$
+
+Este é um estimador não-viesado.
+
+\subsubsection*{Média Desconhecida}
+\begin{definition}
+    A \textbf{variância da amostra} é um estimador
+    
+    $$S^2 = \frac{\sum_{i = 1}^n (X_i - \overline{X})^2}{n - 1}$$
+\end{definition}
+
+\begin{corollary}
+    $S^2$ é um \textbf{estimador} não viesado de $\sigma^2$, isto é
+    
+    $$E(S^2) = \sigma^2$$
+\end{corollary}
+
+\begin{corollary}
+    $$Var(S^2) = \frac{(n-1) \mu_4 - (n-3) \sigma^2}{n (n-1)}$$
+    
+    onde
+    
+    $$\mu_4 = E((X - \mu)^4)$$
+\end{corollary}
+
+\begin{corollary}
+    Se $\mu_4 < \infty$, então $S^2$ e a variância verdadeira $\hat{\sigma}^2$ são ambos estimadores consistentes de $\sigma^2$
+\end{corollary}
+
+\subsection*{8.3 Erro Quadrático Médio}
+\begin{definition}
+    O \textbf{erro quadrático médio} de um estimador T de um parâmetro $\theta$ é
+    
+    $$EQM(T;\theta) = E((T - \theta)^2)$$
+\end{definition}
+
+\begin{corollary}
+    $$EQM(T; \theta) = Var(T) + (Vi\acute{e}s(T))^2$$
+\end{corollary}
+
+\subsection*{Distribuição Qui-quadrado}
+\begin{lemma}
+    Se $Z \backsim N(0, 1)$, então $\mu_4 (Z) = 3$.
+\end{lemma}
+
+\begin{lemma}
+    Se X é normal, então
+    
+    $$Var(S^2) = \frac{2 \sigma^4}{n - 1} \ \text{ e } \ Var(\sigma^2) = \frac{2 (n-1)}{n^2}\sigma^4$$
+\end{lemma}
+
+\begin{definition}
+    A distribuição $\Gamma(\frac{n}{2}, \frac{1}{2})$ é também chamada de \textbf{qui-quadrado com n graus de liberdade}, cuja notação é
+    
+    $$Y \backsim X^2(n)$$
+\end{definition}
+
+\begin{corollary}
+    A distribuição de $S^2$ é determinada por
+    
+    $$\frac{(n-1) S^2}{\sigma^2} \backsim X^2 (n-1)$$
+\end{corollary}
+
+\begin{corollary}
+    Se $Y \backsim X^2(n)$, então $Z = \sqrt{2 Y} - \sqrt{2 n - 1}$ é aproximadamente $N(0, 1)$ (especialmente para n grande).
+\end{corollary}
+
+\subsection*{8.5 Distribuição t de Student}
+\begin{definition}
+    Sejam $Z \backsim N(0, 1)$ e $X \backsim X^2(n)$ variáveis independentes. A distribuição da variável
+    
+    $$T = \frac{Z}{\sqrt{X/n}}$$
+    
+    É chamado de \textbf{t de Student com n graus de liberdade} (notação: $T \backsim t(n)$)
+\end{definition}
+
+\begin{corollary}
+    A densidade de $T \backsim t(n)$ é
+    
+    $$f(t) = TDen(t; n) = \frac{\Gamma(\frac{n+1}{2}}{\Gamma (\frac{n}{2}) \sqrt{\pi n}} \left (1 + \frac{t^2}{n} \right) ^{-(n+ 1)/2}$$
+\end{corollary}
+
+\begin{corollary}
+    Se $T \backsim t(n)$, então 
+    
+    $$E(T) = 0 \ \forall n \geq 2$$
+    
+    $$Var(T) = \frac{n}{n-2} \ \forall n \geq 3$$
+    
+    $$Med(T) = 0 \ \forall n \geq 1$$
+    
+    Nos demais casos não existe.
+\end{corollary}
+
+\begin{theorem}
+    Seja $X_1, X_2, \cdots, X_n$ uma AAS da variável aleatória normal X. Então $\overline{X}$ e $S^2$ são independentes, e
+    
+    $$T = \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \backsim t(n - 1)$$
+\end{theorem}
+
 
 \end{document}
