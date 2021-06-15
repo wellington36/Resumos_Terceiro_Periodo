@@ -720,7 +720,7 @@ $$P(Z \leq t) = 1 - P(X < n) = 1 - e^{- \lambda t} \sum_{k = 0}^{n-1} \frac{(\la
     
     $$f_{W,Z} (w, z) = f_{X, Y} (x, y) \cdot |J|$$
     
-    onde J é o Jacobiano da Transformada $T : (x, y) \rightarrow{} (g(x, y), h(x, y))$:
+    onde J é o Jacobiano da inversa da Transformada $T : (x, y) \rightarrow{} (g(x, y), h(x, y))$:
     
     $$J = \frac{\partial (x,y)}{\partial (w, z)} = \left | \begin{array}{cc}
         \frac{\partial x}{\partial w} & \frac{\partial x}{\partial z} \\
@@ -861,7 +861,7 @@ Não tem nada aqui (só aplicações) pode seguir...
 
 \subsection*{8.2 Estimadores pontuais da variância}
 \subsubsection*{Média Conhecida}
-Suponha que a média $\mu = E(X)$ é conhecida, e queremos saber o valor de $\sigma^2 = Var(X)$, em possível estimador para $E((X - \mu)^2)$ é
+Suponha que a média $\mu = E(X)$ é conhecida, e queremos saber o valor de $\sigma^2 = Var(X)$, um possível estimador para $E((X - \mu)^2)$ é
 
 $$\hat{\sigma} = \frac{\sum_{i = 1}^{n} (X_i - \mu)^2}{n}$$
 
@@ -963,5 +963,15 @@ Este é um estimador não-viesado.
     $$T = \frac{\overline{X} - \mu}{\sigma / \sqrt{n}} \backsim t(n - 1)$$
 \end{theorem}
 
+\section{Dado em aula}
+\subsection*{Gerar variável aleatória}
+\begin{theorem}
+    Seja F uma função de distribuição cumulativa continua e estritamente crescente.
+    \begin{enumerate}
+        \item Se $U \backsim Unif(0, 1)$ e $X = F^{-1} (U)$. Então X é uma variável aleatória com função de distribuição cumulada F.
+        
+        \item Se X é uma variável aleatória com função de distribuição cumulativa F. Então $F(X) \backsim Unif(0, 1)$.
+    \end{enumerate}
+\end{theorem}
 
 \end{document}
