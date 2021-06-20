@@ -416,7 +416,7 @@ Pôde-se pensar em certas circunstancias a transformada de Laplace como produto 
 \begin{theorem}
     Seja $F(s) = \mathscr{L}(f(t))$ e $G(s) = \mathscr{L} (g(t))$, para $s > a \geq 0$, então
     
-    $$H(s) = F(s) \dot G(s) = \mathscr{L}(h(t))$$
+    $$H(s) = F(s) \cdot G(s) = \mathscr{L}(h(t))$$
     
     onde 
     
@@ -477,7 +477,7 @@ $$F(s) G(s) = \int_0^\infty e^{- st} h(t) d t = \mathscr{L}(h(t))$$
     \end{enumerate}
 \end{corollary}
 
-\section{Teorema importante (12/05)}
+\section{Existência e unicidade (12/05)}
 
 \begin{lemma}
     $$\dfrac{d}{d t} e^{t A} = A e^{t A} = e^{t A} . A$$
@@ -532,7 +532,7 @@ Dado $A = \left [ \begin{array}{cc}
     c & d
 \end{array} \right ]$, podemos determinar como vai ser a solução do sistema olhando para o plano formado pelo traço de A e o determinante de A (imagem feita em aula):
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics{edo1.png}
     \caption{edo1}
@@ -573,7 +573,7 @@ Dado $A = \left [ \begin{array}{cc}
     \end{array} \right .
     $$
     
-    É bem aproximado na vizinhança do ponto crítico $x_0, y_0)$ pelo sistema linear
+    É bem aproximado na vizinhança do ponto crítico $(x_0, y_0)$ pelo sistema linear
     
     $$ \left \{
     \begin{array}{ll}
@@ -590,5 +590,7 @@ Dado $A = \left [ \begin{array}{cc}
 
 \section{Pendulo e Predador x Presa (02/06)}
 Aula de aplicações.
+
+\subsubsection*{Obs.:} As 2 últimas aulas sobre método de Euler não estão aqui pois não serão cobradas na prova.
 
 \end{document}
